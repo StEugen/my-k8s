@@ -32,9 +32,9 @@ spec:
         env:
         # Minio access key and secret key
         - name: MINIO_ACCESS_KEY
-          value: "minio"
+          value: "steugen"
         - name: MINIO_SECRET_KEY
-          value: "minio123"
+          value: "steugen123"
         ports:
         - containerPort: 9000
           hostPort: 9000
