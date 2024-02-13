@@ -42,3 +42,7 @@ spec:
         volumeMounts:
         - name: storage # must match the volume name, above
           mountPath: "/storage"
+        resources:
+          limits:
+            memory: 1000Mi
+
