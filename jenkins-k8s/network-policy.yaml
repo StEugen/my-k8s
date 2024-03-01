@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: jenkins-access-policy
+  namespace: devops-tools
+spec:
+  podSelector:
+    matchLabels:
+      app: jenkins-server
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector: {}
+  - ports:
+    - protocol: TCP
+      port: 32000

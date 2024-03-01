@@ -9,7 +9,7 @@ spec:
     - ReadWriteOnce
   storageClassName: manual
   hostPath:
-    path: /path/to/host/directory
+    path: /data/gitea
 
 ---
 apiVersion: v1
