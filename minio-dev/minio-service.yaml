@@ -10,7 +10,7 @@ spec:
   ports:
   - port: 9090
     targetPort: 9090
-    nodePort: 3120
+    nodePort: 31200
   selector:
     app: minio
 
