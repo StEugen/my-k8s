@@ -6,7 +6,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: minio-deployment
+      app: minio
   policyTypes:
   - Ingress
   ingress:
