@@ -25,13 +25,12 @@ spec:
         - minio server /data --console-address :9090
         volumeMounts:
         - mountPath: /data
-          name: localvolume
+          name: minio-data
         resources:
           limits:
             memory: 1000Mi
       volumes:
-      - name: localvolume
-        hostPath:
-          path: /mnt/disk1/data
-          type: DirectoryOrCreate
+      - name: minio-data
+        persistentVolumeClaim:
+          claimName: minio-data
 
