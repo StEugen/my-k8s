@@ -1,0 +1,12 @@
+---
+- name: Import local
+  hosts: '{{ host }}'
+  gather_facts: no 
+
+  tasks:
+    - name: ping-pong
+      ping:
+        register: pings
+
+    - name: Install docker
+      
