@@ -1,12 +1,71 @@
 ---
-- name: Import local
+- name: Install dependencies for cozy stack
   hosts: '{{ host }}'
   gather_facts: no 
+  become: yes
 
   tasks:
-    - name: ping-pong
-      ping:
-        register: pings
+    - name: Update apt cache
+      apt:
+        update_cache: yes
 
-    - name: Install docker
-      
+    - name: Install ca certs etc...
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gnupg-agent
+        - software-properties-common
+
+    - name: Docker GPG key 
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Docker repository
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
+        state: present
+
+    - name: Install Docker
+      apt:
+        name: docker-ce docker-ce-cli containerd.io
+        state: present
+
+    - name: Add kubernetes apt-key
+      apt_key:
+        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+        state: present
+
+    - name: Add kubernetes repository
+      apt_repository:
+        repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+        state: present
+
+    - name: Install packages for cozy stack - make, nmap, dialog, yq, kubectl, helm 
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - dialog
+        - nmap
+        - make
+        - yq
+        - kubectl
+        - helm
+
+    - name: Install Talosctl
+      shell: |
+        curl -L https://github.com/talos-systems/talos/releases/latest/download/talosctl-{{ ansible_system }}-amd64 -o /usr/local/bin/talosctl
+        chmod +x /usr/local/bin/talosctl
+      args:
+        executable: /bin/bash
+
+  handlers:
+    - name: restart docker
+      service:
+        name: docker
+        state: restarted
