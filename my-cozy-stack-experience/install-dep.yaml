@@ -9,6 +9,16 @@
       apt:
         update_cache: yes
 
+    - name: Disable swap 
+      shell: |
+        swapoff -a
+
+    - name: Disable swap in fstab
+      replace:
+        path: /etc/fstab
+        regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
+        replace: '# \1'
+        
     - name: Install ca certs etc...
       apt:
         name: "{{ item }}"
@@ -20,30 +30,56 @@
         - gnupg-agent
         - software-properties-common
 
-    - name: Docker GPG key 
-      apt_key:
+    - name: add Docker apt-key
+      get_url:
         url: https://download.docker.com/linux/ubuntu/gpg
-        state: present
+        dest: /etc/apt/keyrings/docker-apt-keyring.asc
+        mode: '0644'
+        force: true
 
     - name: Docker repository
       apt_repository:
-        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
+        repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable"
         state: present
 
-    - name: Install Docker
+    - name: Update apt cache again
       apt:
-        name: docker-ce docker-ce-cli containerd.io
-        state: present
+        update_cache: yes 
 
-    - name: Add kubernetes apt-key
-      apt_key:
-        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-        state: present
+    - name: Install docker
+      shell: "sudo apt install docker-ce docker-ce-cli containerd.io -y" 
+      #apt:
+        #name: docker-ce docker-ce-cli containerd.io
+        #state: present
 
-    - name: Add kubernetes repository
+    - name: Add kubernetes key
+      get_url:
+        url: https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key
+        dest: /etc/apt/keyrings/kubernetes-apt-keyring.asc
+        mode: '0644'
+        force: true
+
+    - name: Add kubernetes repo 
       apt_repository:
-        repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+        repo: "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.asc] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /"
         state: present
+        update_cache: yes
+
+    - name: Install kubelet
+      apt:
+        name: kubelet=1.29.*
+        state: present
+        update_cache: true
+
+    - name: Install kubeadm
+      apt:
+        name: kubeadm=1.29.*
+        state: present
+
+    #- name: Turn on kubelet 
+      #service:
+        #name: kubelet
+        #enabled: yes
 
     - name: Install packages for cozy stack - make, nmap, dialog, yq, kubectl, helm 
       apt:
@@ -53,16 +89,16 @@
         - dialog
         - nmap
         - make
-        - yq
         - kubectl
-        - helm
+      
+    - name: Install helmsh
+      shell: "curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 && chmod 700 get_helm.sh && ./get_helm.sh"
 
+    - name: Install yq
+      shell: "sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 &&  sudo chmod a+x /usr/local/bin/yq"
+      
     - name: Install Talosctl
-      shell: |
-        curl -L https://github.com/talos-systems/talos/releases/latest/download/talosctl-{{ ansible_system }}-amd64 -o /usr/local/bin/talosctl
-        chmod +x /usr/local/bin/talosctl
-      args:
-        executable: /bin/bash
+      shell: "curl -sL https://talos.dev/install | sh"
 
   handlers:
     - name: restart docker
