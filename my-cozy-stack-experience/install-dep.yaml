@@ -39,7 +39,7 @@
 
     - name: Docker repository
       apt_repository:
-        repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable"
+        repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker-apt-keyring.asc] https://download.docker.com/linux/ubuntu jammy stable"
         state: present
 
     - name: Update apt cache again
