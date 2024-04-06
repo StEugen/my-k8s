@@ -1,0 +1,10 @@
+---
+- name: Install dependencies for cozy stack
+  hosts: '{{ host }}'
+  gather_facts: no 
+  become: yes
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes

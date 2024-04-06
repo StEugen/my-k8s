@@ -65,16 +65,16 @@
         state: present
         update_cache: yes
 
-    - name: Install kubelet
-      apt:
-        name: kubelet=1.29.*
-        state: present
-        update_cache: true
+    #- name: Install kubelet
+      #  apt:
+        #  name: kubelet=1.29.*
+        #state: present
+        #update_cache: true
 
-    - name: Install kubeadm
-      apt:
-        name: kubeadm=1.29.*
-        state: present
+    #- name: Install kubeadm
+      # apt:
+        # name: kubeadm=1.29.*
+        #state: present
 
     #- name: Turn on kubelet 
       #service:
