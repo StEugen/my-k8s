@@ -1,0 +1,423 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: neko
+  name: neko
+spec:
+  ports:
+    - name: "8080"
+      port: 8080
+      targetPort: 8080
+    - name: "52000"
+      port: 52000
+      protocol: UDP
+      targetPort: 52000
+    - name: "52001"
+      port: 52001
+      protocol: UDP
+      targetPort: 52001
+    - name: "52002"
+      port: 52002
+      protocol: UDP
+      targetPort: 52002
+    - name: "52003"
+      port: 52003
+      protocol: UDP
+      targetPort: 52003
+    - name: "52004"
+      port: 52004
+      protocol: UDP
+      targetPort: 52004
+    - name: "52005"
+      port: 52005
+      protocol: UDP
+      targetPort: 52005
+    - name: "52006"
+      port: 52006
+      protocol: UDP
+      targetPort: 52006
+    - name: "52007"
+      port: 52007
+      protocol: UDP
+      targetPort: 52007
+    - name: "52008"
+      port: 52008
+      protocol: UDP
+      targetPort: 52008
+    - name: "52009"
+      port: 52009
+      protocol: UDP
+      targetPort: 52009
+    - name: "52010"
+      port: 52010
+      protocol: UDP
+      targetPort: 52010
+    - name: "52011"
+      port: 52011
+      protocol: UDP
+      targetPort: 52011
+    - name: "52012"
+      port: 52012
+      protocol: UDP
+      targetPort: 52012
+    - name: "52013"
+      port: 52013
+      protocol: UDP
+      targetPort: 52013
+    - name: "52014"
+      port: 52014
+      protocol: UDP
+      targetPort: 52014
+    - name: "52015"
+      port: 52015
+      protocol: UDP
+      targetPort: 52015
+    - name: "52016"
+      port: 52016
+      protocol: UDP
+      targetPort: 52016
+    - name: "52017"
+      port: 52017
+      protocol: UDP
+      targetPort: 52017
+    - name: "52018"
+      port: 52018
+      protocol: UDP
+      targetPort: 52018
+    - name: "52019"
+      port: 52019
+      protocol: UDP
+      targetPort: 52019
+    - name: "52020"
+      port: 52020
+      protocol: UDP
+      targetPort: 52020
+    - name: "52021"
+      port: 52021
+      protocol: UDP
+      targetPort: 52021
+    - name: "52022"
+      port: 52022
+      protocol: UDP
+      targetPort: 52022
+    - name: "52023"
+      port: 52023
+      protocol: UDP
+      targetPort: 52023
+    - name: "52024"
+      port: 52024
+      protocol: UDP
+      targetPort: 52024
+    - name: "52025"
+      port: 52025
+      protocol: UDP
+      targetPort: 52025
+    - name: "52026"
+      port: 52026
+      protocol: UDP
+      targetPort: 52026
+    - name: "52027"
+      port: 52027
+      protocol: UDP
+      targetPort: 52027
+    - name: "52028"
+      port: 52028
+      protocol: UDP
+      targetPort: 52028
+    - name: "52029"
+      port: 52029
+      protocol: UDP
+      targetPort: 52029
+    - name: "52030"
+      port: 52030
+      protocol: UDP
+      targetPort: 52030
+    - name: "52031"
+      port: 52031
+      protocol: UDP
+      targetPort: 52031
+    - name: "52032"
+      port: 52032
+      protocol: UDP
+      targetPort: 52032
+    - name: "52033"
+      port: 52033
+      protocol: UDP
+      targetPort: 52033
+    - name: "52034"
+      port: 52034
+      protocol: UDP
+      targetPort: 52034
+    - name: "52035"
+      port: 52035
+      protocol: UDP
+      targetPort: 52035
+    - name: "52036"
+      port: 52036
+      protocol: UDP
+      targetPort: 52036
+    - name: "52037"
+      port: 52037
+      protocol: UDP
+      targetPort: 52037
+    - name: "52038"
+      port: 52038
+      protocol: UDP
+      targetPort: 52038
+    - name: "52039"
+      port: 52039
+      protocol: UDP
+      targetPort: 52039
+    - name: "52040"
+      port: 52040
+      protocol: UDP
+      targetPort: 52040
+    - name: "52041"
+      port: 52041
+      protocol: UDP
+      targetPort: 52041
+    - name: "52042"
+      port: 52042
+      protocol: UDP
+      targetPort: 52042
+    - name: "52043"
+      port: 52043
+      protocol: UDP
+      targetPort: 52043
+    - name: "52044"
+      port: 52044
+      protocol: UDP
+      targetPort: 52044
+    - name: "52045"
+      port: 52045
+      protocol: UDP
+      targetPort: 52045
+    - name: "52046"
+      port: 52046
+      protocol: UDP
+      targetPort: 52046
+    - name: "52047"
+      port: 52047
+      protocol: UDP
+      targetPort: 52047
+    - name: "52048"
+      port: 52048
+      protocol: UDP
+      targetPort: 52048
+    - name: "52049"
+      port: 52049
+      protocol: UDP
+      targetPort: 52049
+    - name: "52050"
+      port: 52050
+      protocol: UDP
+      targetPort: 52050
+    - name: "52051"
+      port: 52051
+      protocol: UDP
+      targetPort: 52051
+    - name: "52052"
+      port: 52052
+      protocol: UDP
+      targetPort: 52052
+    - name: "52053"
+      port: 52053
+      protocol: UDP
+      targetPort: 52053
+    - name: "52054"
+      port: 52054
+      protocol: UDP
+      targetPort: 52054
+    - name: "52055"
+      port: 52055
+      protocol: UDP
+      targetPort: 52055
+    - name: "52056"
+      port: 52056
+      protocol: UDP
+      targetPort: 52056
+    - name: "52057"
+      port: 52057
+      protocol: UDP
+      targetPort: 52057
+    - name: "52058"
+      port: 52058
+      protocol: UDP
+      targetPort: 52058
+    - name: "52059"
+      port: 52059
+      protocol: UDP
+      targetPort: 52059
+    - name: "52060"
+      port: 52060
+      protocol: UDP
+      targetPort: 52060
+    - name: "52061"
+      port: 52061
+      protocol: UDP
+      targetPort: 52061
+    - name: "52062"
+      port: 52062
+      protocol: UDP
+      targetPort: 52062
+    - name: "52063"
+      port: 52063
+      protocol: UDP
+      targetPort: 52063
+    - name: "52064"
+      port: 52064
+      protocol: UDP
+      targetPort: 52064
+    - name: "52065"
+      port: 52065
+      protocol: UDP
+      targetPort: 52065
+    - name: "52066"
+      port: 52066
+      protocol: UDP
+      targetPort: 52066
+    - name: "52067"
+      port: 52067
+      protocol: UDP
+      targetPort: 52067
+    - name: "52068"
+      port: 52068
+      protocol: UDP
+      targetPort: 52068
+    - name: "52069"
+      port: 52069
+      protocol: UDP
+      targetPort: 52069
+    - name: "52070"
+      port: 52070
+      protocol: UDP
+      targetPort: 52070
+    - name: "52071"
+      port: 52071
+      protocol: UDP
+      targetPort: 52071
+    - name: "52072"
+      port: 52072
+      protocol: UDP
+      targetPort: 52072
+    - name: "52073"
+      port: 52073
+      protocol: UDP
+      targetPort: 52073
+    - name: "52074"
+      port: 52074
+      protocol: UDP
+      targetPort: 52074
+    - name: "52075"
+      port: 52075
+      protocol: UDP
+      targetPort: 52075
+    - name: "52076"
+      port: 52076
+      protocol: UDP
+      targetPort: 52076
+    - name: "52077"
+      port: 52077
+      protocol: UDP
+      targetPort: 52077
+    - name: "52078"
+      port: 52078
+      protocol: UDP
+      targetPort: 52078
+    - name: "52079"
+      port: 52079
+      protocol: UDP
+      targetPort: 52079
+    - name: "52080"
+      port: 52080
+      protocol: UDP
+      targetPort: 52080
+    - name: "52081"
+      port: 52081
+      protocol: UDP
+      targetPort: 52081
+    - name: "52082"
+      port: 52082
+      protocol: UDP
+      targetPort: 52082
+    - name: "52083"
+      port: 52083
+      protocol: UDP
+      targetPort: 52083
+    - name: "52084"
+      port: 52084
+      protocol: UDP
+      targetPort: 52084
+    - name: "52085"
+      port: 52085
+      protocol: UDP
+      targetPort: 52085
+    - name: "52086"
+      port: 52086
+      protocol: UDP
+      targetPort: 52086
+    - name: "52087"
+      port: 52087
+      protocol: UDP
+      targetPort: 52087
+    - name: "52088"
+      port: 52088
+      protocol: UDP
+      targetPort: 52088
+    - name: "52089"
+      port: 52089
+      protocol: UDP
+      targetPort: 52089
+    - name: "52090"
+      port: 52090
+      protocol: UDP
+      targetPort: 52090
+    - name: "52091"
+      port: 52091
+      protocol: UDP
+      targetPort: 52091
+    - name: "52092"
+      port: 52092
+      protocol: UDP
+      targetPort: 52092
+    - name: "52093"
+      port: 52093
+      protocol: UDP
+      targetPort: 52093
+    - name: "52094"
+      port: 52094
+      protocol: UDP
+      targetPort: 52094
+    - name: "52095"
+      port: 52095
+      protocol: UDP
+      targetPort: 52095
+    - name: "52096"
+      port: 52096
+      protocol: UDP
+      targetPort: 52096
+    - name: "52097"
+      port: 52097
+      protocol: UDP
+      targetPort: 52097
+    - name: "52098"
+      port: 52098
+      protocol: UDP
+      targetPort: 52098
+    - name: "52099"
+      port: 52099
+      protocol: UDP
+      targetPort: 52099
+    - name: "52100"
+      port: 52100
+      protocol: UDP
+      targetPort: 52100
+  selector:
+    io.kompose.service: neko
+status:
+  loadBalancer: {}

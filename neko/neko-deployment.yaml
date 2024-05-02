@@ -1,0 +1,246 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.0 (40646f47)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: neko
+  name: neko
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: neko
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.0 (40646f47)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: neko
+    spec:
+      containers:
+        - env:
+            - name: NEKO_EPR
+              value: 52000-52100
+            - name: NEKO_ICELITE
+              value: "1"
+            - name: NEKO_PASSWORD
+              value: neko
+            - name: NEKO_PASSWORD_ADMIN
+              value: admin
+            - name: NEKO_SCREEN
+              value: 1920x1080@30
+          image: m1k1o/neko:firefox
+          name: neko
+          ports:
+            - containerPort: 8080
+            - containerPort: 52000
+              protocol: UDP
+            - containerPort: 52001
+              protocol: UDP
+            - containerPort: 52002
+              protocol: UDP
+            - containerPort: 52003
+              protocol: UDP
+            - containerPort: 52004
+              protocol: UDP
+            - containerPort: 52005
+              protocol: UDP
+            - containerPort: 52006
+              protocol: UDP
+            - containerPort: 52007
+              protocol: UDP
+            - containerPort: 52008
+              protocol: UDP
+            - containerPort: 52009
+              protocol: UDP
+            - containerPort: 52010
+              protocol: UDP
+            - containerPort: 52011
+              protocol: UDP
+            - containerPort: 52012
+              protocol: UDP
+            - containerPort: 52013
+              protocol: UDP
+            - containerPort: 52014
+              protocol: UDP
+            - containerPort: 52015
+              protocol: UDP
+            - containerPort: 52016
+              protocol: UDP
+            - containerPort: 52017
+              protocol: UDP
+            - containerPort: 52018
+              protocol: UDP
+            - containerPort: 52019
+              protocol: UDP
+            - containerPort: 52020
+              protocol: UDP
+            - containerPort: 52021
+              protocol: UDP
+            - containerPort: 52022
+              protocol: UDP
+            - containerPort: 52023
+              protocol: UDP
+            - containerPort: 52024
+              protocol: UDP
+            - containerPort: 52025
+              protocol: UDP
+            - containerPort: 52026
+              protocol: UDP
+            - containerPort: 52027
+              protocol: UDP
+            - containerPort: 52028
+              protocol: UDP
+            - containerPort: 52029
+              protocol: UDP
+            - containerPort: 52030
+              protocol: UDP
+            - containerPort: 52031
+              protocol: UDP
+            - containerPort: 52032
+              protocol: UDP
+            - containerPort: 52033
+              protocol: UDP
+            - containerPort: 52034
+              protocol: UDP
+            - containerPort: 52035
+              protocol: UDP
+            - containerPort: 52036
+              protocol: UDP
+            - containerPort: 52037
+              protocol: UDP
+            - containerPort: 52038
+              protocol: UDP
+            - containerPort: 52039
+              protocol: UDP
+            - containerPort: 52040
+              protocol: UDP
+            - containerPort: 52041
+              protocol: UDP
+            - containerPort: 52042
+              protocol: UDP
+            - containerPort: 52043
+              protocol: UDP
+            - containerPort: 52044
+              protocol: UDP
+            - containerPort: 52045
+              protocol: UDP
+            - containerPort: 52046
+              protocol: UDP
+            - containerPort: 52047
+              protocol: UDP
+            - containerPort: 52048
+              protocol: UDP
+            - containerPort: 52049
+              protocol: UDP
+            - containerPort: 52050
+              protocol: UDP
+            - containerPort: 52051
+              protocol: UDP
+            - containerPort: 52052
+              protocol: UDP
+            - containerPort: 52053
+              protocol: UDP
+            - containerPort: 52054
+              protocol: UDP
+            - containerPort: 52055
+              protocol: UDP
+            - containerPort: 52056
+              protocol: UDP
+            - containerPort: 52057
+              protocol: UDP
+            - containerPort: 52058
+              protocol: UDP
+            - containerPort: 52059
+              protocol: UDP
+            - containerPort: 52060
+              protocol: UDP
+            - containerPort: 52061
+              protocol: UDP
+            - containerPort: 52062
+              protocol: UDP
+            - containerPort: 52063
+              protocol: UDP
+            - containerPort: 52064
+              protocol: UDP
+            - containerPort: 52065
+              protocol: UDP
+            - containerPort: 52066
+              protocol: UDP
+            - containerPort: 52067
+              protocol: UDP
+            - containerPort: 52068
+              protocol: UDP
+            - containerPort: 52069
+              protocol: UDP
+            - containerPort: 52070
+              protocol: UDP
+            - containerPort: 52071
+              protocol: UDP
+            - containerPort: 52072
+              protocol: UDP
+            - containerPort: 52073
+              protocol: UDP
+            - containerPort: 52074
+              protocol: UDP
+            - containerPort: 52075
+              protocol: UDP
+            - containerPort: 52076
+              protocol: UDP
+            - containerPort: 52077
+              protocol: UDP
+            - containerPort: 52078
+              protocol: UDP
+            - containerPort: 52079
+              protocol: UDP
+            - containerPort: 52080
+              protocol: UDP
+            - containerPort: 52081
+              protocol: UDP
+            - containerPort: 52082
+              protocol: UDP
+            - containerPort: 52083
+              protocol: UDP
+            - containerPort: 52084
+              protocol: UDP
+            - containerPort: 52085
+              protocol: UDP
+            - containerPort: 52086
+              protocol: UDP
+            - containerPort: 52087
+              protocol: UDP
+            - containerPort: 52088
+              protocol: UDP
+            - containerPort: 52089
+              protocol: UDP
+            - containerPort: 52090
+              protocol: UDP
+            - containerPort: 52091
+              protocol: UDP
+            - containerPort: 52092
+              protocol: UDP
+            - containerPort: 52093
+              protocol: UDP
+            - containerPort: 52094
+              protocol: UDP
+            - containerPort: 52095
+              protocol: UDP
+            - containerPort: 52096
+              protocol: UDP
+            - containerPort: 52097
+              protocol: UDP
+            - containerPort: 52098
+              protocol: UDP
+            - containerPort: 52099
+              protocol: UDP
+            - containerPort: 52100
+              protocol: UDP
+          resources: {}
+      restartPolicy: Always
+status: {}
