@@ -8,8 +8,6 @@ spec:
   - port: 5432
     protocol: TCP
     targetPort: 5432
-  selector:
-    name: postgres 
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -19,8 +17,6 @@ metadata:
   name: db-postgres 
   namespace: dbs 
 spec:
-  selector:
-    name: postgres 
   serviceName: db-postgres 
   template:
     metadata:
