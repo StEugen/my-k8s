@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-postgres 
+  namespace: dbs 
+spec:
+  ports:
+  - port: 5432
+    protocol: TCP
+    targetPort: 5432
+  selector:
+    name: postgres 
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    name: postgres
+  name: db-postgres 
+  namespace: dbs 
+spec:
+  selector:
+    name: postgres 
+  serviceName: db-postgres 
+  template:
+    metadata:
+      name: db-postgres
+    spec:
+      containers:
+      - env:
+        - name: PGDATA
+          value: /var/lib/postgresql/data
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          value: "123456789"
+        image: postgres:15
+        name: db-postgres 
+        ports:
+        - containerPort: 5432
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: postgres-db 
+          subPath: db-postgres 
+      volumes:
+      - name: postgres-db 
+        hostPath:
+          path: /data 
+          type: Directory
+  updateStrategy:
+    rollingUpdate:
+      partition: 0
+    type: RollingUpdate
