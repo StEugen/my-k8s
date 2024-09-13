@@ -26,9 +26,6 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /config
-          resources:
-            limits:
-              shmSize: "1Gi" # optional
       volumes:
         - name: config
           persistentVolumeClaim:
