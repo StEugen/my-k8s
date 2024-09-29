@@ -72,3 +72,25 @@ spec:
     requests:
       storage: 1Gi
 
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata: 
+  name: webtop-access-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: webtop 
+  policyTypes:
+  - Ingress 
+  ingress:
+  - from:
+    - podSelector: {}
+  - ports:
+      - name: webtop-ui 
+        protocol: TCP
+        port: 32110
+      - name: webtop-ui-alt
+        protocol: TCP 
+        port: 32111
+
