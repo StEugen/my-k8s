@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -62,6 +63,20 @@ spec:
 
 ---
 apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: webtop-config-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /data/webtop-config 
+
+---
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: webtop-config-pvc
@@ -71,6 +86,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
+  storageClassName: "" 
 
 ---
 apiVersion: networking.k8s.io/v1
@@ -87,10 +103,8 @@ spec:
   - from:
     - podSelector: {}
   - ports:
-      - name: webtop-ui 
-        protocol: TCP
+      - protocol: TCP
         port: 32110
-      - name: webtop-ui-alt
-        protocol: TCP 
+      - protocol: TCP 
         port: 32111
 
