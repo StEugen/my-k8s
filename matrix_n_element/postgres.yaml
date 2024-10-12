@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-postgres
+  namespace: matrix 
+spec:
+  ports:
+  - port: 5432
+    protocol: TCP
+    targetPort: 5432
+  selector:
+    app: postgres
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: postgres
+  name: db-postgres
+  namespace: matrix 
+spec:
+  serviceName: db-postgres
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - env:
+        - name: PGDATA
+          value: /var/lib/postgresql/data
+        - name: POSTGRES_USER
+          value: synapse
+        - name: POSTGRES_PASSWORD
+          value: ""
+        image: postgres:16
+        name: db-postgres
+        ports:
+        - containerPort: 5432
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: postgres-db
+          subPath: db-postgres
+      volumes:
+      - name: postgres-db
+        hostPath:
+          path: /data
+          type: Directory
+  updateStrategy:
+    type: RollingUpdate
+

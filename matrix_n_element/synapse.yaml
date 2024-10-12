@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: synapse
+  namespace: matrix 
+  labels:
+    app: synapse 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: synapse 
+  template:
+    metadata:
+      labels:
+        app: synapse 
+    spec:
+      containers:
+        - image:  
+          name:  
+          ports:
+            - containerPort: 80
+              name: httpd
+        - image: synapse
+          name: synapse 
+          ports:
+            - containerPort: 8008
+              name: synapse 
+          env:
+            - name: SYNAPSE_SERVER_NAME
+              value: ""
+            - name: SYNAPSE_REPORT_STATS
+              value: ""
+            - name: SYNAPSE_HTTP_PORT
+              value: 
+            - name: SYNAPSE_CONFIG_DIR
+              value: 
+            - name: SYNAPSE_CONFIG_PATH
+              value:
+            - name: SYNAPSE_DATA_DIR
+              value: 
+            - name: SYNAPSE_WORKER
+              value: 
+
